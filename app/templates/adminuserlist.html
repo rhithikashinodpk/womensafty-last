@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 300px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>userInformation</h2>
+        {% for d in data %}
+            <p><strong>Phone:</strong> {{ d.phone }}</p>
+            <p><strong>Address:</strong> {{ d.address }}</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
