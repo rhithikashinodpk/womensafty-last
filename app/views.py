@@ -223,8 +223,9 @@ class policestationListView(ListView):
     template_name = 'police_list.html'
     context_object_name = 'police'    
 
-@method_decorator(decs,name="dispatch")  
-
+  
+@never_cache
+@login_required
 def approve_complaint(request, pk):
     comp = get_object_or_404(Complaint, pk=pk)
     if request.method == 'POST':
@@ -246,21 +247,23 @@ class UserComplaintListView(ListView):
     
 
 
-@method_decorator(decs,name="dispatch")  
-
+ 
+@never_cache
+@login_required
 def sos_view(request):
     # Here you can add logic to handle the SOS request, like sending notifications or alerts.
     # For demonstration purposes, we'll just return a simple response.
     return HttpResponse("SOS signal sent!")   
 
-@method_decorator(decs,name="dispatch")  
-
+ 
+@never_cache
+@login_required
 def search_view(request):
     if request.method == 'GET':
         form = SearchForm(request.GET)
         if form.is_valid():
             query = form.cleaned_data['query']
-            results = PoliceProfile.objects.filter(username__icontains=query)
+            results = PoliceProfile.objects.filter(station_name__icontains=query)
             return render(request, 'search_results.html', {'results': results, 'query': query})
     else:
         form = SearchForm()
@@ -275,14 +278,15 @@ class AdminUserListView(ListView):
     context_object_name="data" 
 
 
-@method_decorator(decs,name="dispatch")  
-
+@never_cache
+@login_required 
 def view_alerts(request):
     alerts = Alert.objects.all()
     return render(request, 'alerts/view_alerts.html', {'alerts': alerts}) 
    
-@method_decorator(decs,name="dispatch")  
-
+ 
+@never_cache
+@login_required
 def send_alertview(request):
     if request.method == 'POST':
         form = AlertForm(request.POST)
@@ -295,13 +299,15 @@ def send_alertview(request):
         form = AlertForm()
     return render(request, 'send_alert.html', {'form': form})
 
-@method_decorator(decs,name="dispatch")  
-
+ 
+@never_cache
+@login_required
 def alert_sentview(request):
     return render(request, 'alert_sent.html')
 
-@method_decorator(decs,name="dispatch")  
 
+@never_cache
+@login_required
 def view_alertsview(request):
     if request.user.is_staff:
         alerts = Alert.objects.all()
@@ -309,8 +315,9 @@ def view_alertsview(request):
     else:
         return redirect('policeindex')
 
-@method_decorator(decs,name="dispatch")  
-
+ 
+@never_cache
+@login_required
 def sendmail(request):
     user_location = request.user.user_profile.location
     print(user_location)
@@ -326,7 +333,7 @@ def sendmail(request):
             fail_silently=False,
         )
 
-    return redirect("signin")
+    return redirect("userindex")
 
 
 
