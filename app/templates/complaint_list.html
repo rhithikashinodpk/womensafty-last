@@ -3,26 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Complaints List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(162, 200, 200);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            margin: 0 auto;
+            width: 80%;
+        }
+        .complaint {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+    </style>
 </head>
-<body style="background-color: rgb(162, 200, 200);">
-    <h1>complaints List</h1>
-    <div class="container mb-5" >
-        <div class="row d-flex justify-content-evenly">
-            <div class="col-7 border" style="height: 580px;">
-            <div>
-                {% for complaint in complaints %}
-                <li>{{ complaint.description }} 
-                        </li>
-                        <li>
-                            {{complaint.status}}
-                        </li>
-                {% endfor %}
-    
-            </div>  
-   </div>
+<body>
+    <h1>Complaints List</h1>
+    <div class="container">
+        {% for complaint in complaints %}
+        <div class="complaint">
+            <p><strong>Description:</strong> {{ complaint.description }}</p>
+            <p><strong>Status:</strong> {{ complaint.status }}</p>
+        </div>
+        {% endfor %}
     </div>
-
 </body>
 </html>
-

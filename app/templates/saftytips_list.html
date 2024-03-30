@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List of Safety Tips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #808489;
+            padding: 20px;
+            background: url(https://cdn.educba.com/academy/wp-content/uploads/2023/12/Safety-of-Women-in-India.jpg.webp);
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+        .tip-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tip-item {
+            border: 1px solid #878282;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+        }
+        h1 {
+            font-size: 28px;
+            text-align: center;
+            text-decoration: underline;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <div class="row">
-        <!-- safetytip_list.html -->
+    <div class="container">
         <h1>List of Safety Tips</h1>
-        <div class="container mb-5">
-            <div class="row d-flex justify-content-evenly">
-                <div class="col-7 border" style="height: 580px;">
-            <div>
+        <div class="tip-list">
             {% for Saftytips in saftytips %}
-            <li>{{ Saftytips.description }}</li>
+                <div class="tip-item">{{ Saftytips.description }}</div>
             {% endfor %}
-
-        </div>            
+        </div>
     </div>
-</div>
 </body>
 </html>
