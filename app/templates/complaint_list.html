@@ -29,8 +29,9 @@
 <body>
     <h1>Complaints List</h1>
     <div class="container">
-        {% for complaint in complaints %}
+        {% for complaint in data %}
         <div class="complaint">
+
             <p><strong>Description:</strong> {{ complaint.description }}</p>
             <p><strong>Status:</strong> {{ complaint.status }}</p>
         </div>

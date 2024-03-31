@@ -45,9 +45,11 @@
     <div class="container">
         <h1>List of Safety Tips</h1>
         <div class="tip-list">
+         
             {% for Saftytips in saftytips %}
-                <div class="tip-item">{{ Saftytips.description }}</div>
+            <li> <h3>* {{ Saftytips.description }} </h3></li>
             {% endfor %}
+          
         </div>
     </div>
 </body>

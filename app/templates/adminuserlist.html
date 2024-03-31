@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-{%load static%}
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user Information</title>
+    <title>User Information</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,12 +18,19 @@
         }
 
         .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
             background-color: #ffffff;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            width: 300px;
-            max-width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 250px;
             text-align: center;
         }
 
@@ -40,10 +47,13 @@
 </head>
 <body>
     <div class="container">
-        <h2>userInformation</h2>
+        <h2>User Information</h2>
         {% for d in data %}
+        <div class="card">
+            <p><strong>User:</strong> {{ d.user }}</p>
             <p><strong>Phone:</strong> {{ d.phone }}</p>
             <p><strong>Address:</strong> {{ d.address }}</p>
+        </div>
         {% endfor %}
     </div>
 </body>

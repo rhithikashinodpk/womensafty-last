@@ -3,33 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Safety Tips</title>
+    <style>
+        body {
+            background: url(https://images.squarespace-cdn.com/content/v1/61a4e209d6a94c67f470ac05/cae1437e-ce0e-4ac1-86d1-1c29a76cdbb1/diversity+women+leaders.jpg);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #f6d920;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: none;
+        }
+        button[type="submit"] {
+            background-color: #e50b9c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>Safty tips</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        {%csrf_token%}
-        {{form.as_p}}
-        <button type="submit">submit</button>
-    </form>
-
-
-
-</head>
-<style>
-  body{
-    background: linear-gradient(to bottom,#ebc9c9,#f6f4f2,#ebc9c9);
-    }
-</style>
-
-<body>
-  <a class="nav-link active" aria-current="page" href="{%url 'safty_tips'%}">
-    <button type="button" class="btn btn background-color:#faf9f8;">
-  </button>
-  </a>
-  <form action="" method="post" enctype="multipart/form-data">
-    <div class="container mt-3 d-flex justify-content-center">
-      <div class="card" style="width: 22rem;">
-      </div></div></form>
+    <div class="container">
+        <h1>Add Safety Tips</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>
