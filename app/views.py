@@ -358,4 +358,3 @@ class userlocationview(ListView):
     model=UserProfile
     context_object_name="data" 
 
- 
