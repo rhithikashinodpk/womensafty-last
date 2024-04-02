@@ -47,16 +47,25 @@
 </head>
 <body>
     <div class="container">
-        <h2>User Information</h2>
+        <h2>police Information</h2>
         {% for d in data %}
         <div class="card">
             <p><strong>User:</strong> {{ d.user }}</p>
-            <p><strong>Phone:</strong> {{ d.phone }}</p>
-            <p><strong>Address:</strong> {{ d.address }}</p>
-            <p><strong>location:</strong> {{ d.location }}</p>
-
+            <p><strong>stationname:</strong> {{ d.station_name }}</p>
+            <p><strong>stationlocation:</strong> {{ d.police_station_location }}</p>
+            <p><strong>email:</strong> {{ d.email }}</p>
+            <p><strong>helpline_number:</strong> {{ d.helpline_number }}</p>
+            <!-- <form action="" method="post"> -->
+                <button type="submit"><a href="{% url 'updatepolice'  d.id %}">update</a></button>
+               
+                <button type="submit"><a href="{% url 'police-delete'  d.id %}">delete</a></button>
+               
+            <!-- </form> -->
         </div>
+        
         {% endfor %}
+
+
     </div>
 </body>
 </html>

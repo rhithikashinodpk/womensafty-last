@@ -39,9 +39,10 @@ urlpatterns = [
 
     path("saftytips/",SaftytipsView.as_view(),name='safty_tips'),
     path("saftytipsview/",SafetyTipListView.as_view(),name="saftytipsview"),
+    path("policelist/<int:pk>",policestationListView.as_view(),name="police_list"),
+
     path("policeupdate/<int:pk>/change/",PoliceUpdateView.as_view(),name="police-update"),
     path("policedelete/<int:pk>/remove/",PoliceDeleteView.as_view(),name="police-delete"),
-    path("policelist/<int:pk>",policestationListView.as_view(),name="policelist"),
     path("approve_complaint/<int:pk>",approve_complaint,name="approve_complaint"),
     path("checkcomplaints",UserComplaintListView.as_view(),name="checkcomplaint"),
     path("user/<int:pk>/",SpecifiedUser.as_view(),name="specifieduser"),
@@ -52,13 +53,12 @@ urlpatterns = [
     path('alert-sent/', views.alert_sentview, name='alert_sent'),
     path('view-alerts/', views.view_alertsview, name='view_alerts'),
     path('view-alerts/', views.view_alerts, name='view_alerts'),
-    
-
-
-
+    path('adminpoliceupdate/<int:pk>/',views.AdminpoliceUpdateView.as_view(),name="updatepolice"),
+    path('userlocation',views.userlocationview.as_view(),name="userlocation"),
     path("login",LoginView.as_view(),name="signin"),
     path("logout",signoutView.as_view(),name="logout"),
     path("send_mail",views.sendmail,name="email"),
     path("",IndexView.as_view(),name="home"),
+    path("adminpolicelistview",AdminpoliceListView.as_view(),name="adminlistpolice")
 
-]  + static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

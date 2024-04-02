@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Open Sans', Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100px; /* Adjust the width as needed */
+            height: 100px; /* Adjust the height as needed */
+            object-fit: cover; /* Ensures the image fills the space without stretching */
+            border-radius: 50%; /* Makes the image circular */
+            margin-bottom: 10px; /* Adds space between the image and other content */
+        }
+
+        .user-info {
+            text-align: left;
+            padding: 10px 0;
+        }
+
+        .user-info p {
+            margin: 5px 0;
+            color: #666666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>User Information</h2>
+    {% for d in data %}
+    <div class="card">
+        <div class="user-info">
+            <img src="{% static 'path_to_user_image.jpg' %}" alt="User Image">
+            <p><strong>User:</strong> {{ d.user }}</p>
+            <p><strong>Phone:</strong> {{ d.phone }}</p>
+            <p><strong>Location:</strong> {{ d.location }}</p>
+        </div>
+        <div class="map">
+            <iframe class="w-100 h-100 rounded-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.9531585635505!2d76.34271137327569!3d10.02072427268137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c61ec082add%3A0xf5f56e9d266e15a8!2sThrikkakara%20Janamaithri%20Police%20Station!5e0!3m2!1sen!2sin!4v1710406961050!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

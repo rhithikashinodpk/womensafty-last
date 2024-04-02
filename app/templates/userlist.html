@@ -12,7 +12,9 @@
             margin: 0;
             padding: 20px;
             background: url(https://wallpapers.com/images/hd/black-cubes-iphone-dark-hn8dtu2xe6u6efu1.jpg);
-            color: white;
+            color: #fff;
+            background-size: cover;
+            background-position: center;
         }
         .container {
             width: 80%;
@@ -23,15 +25,18 @@
             margin-bottom: 30px;
         }
         .profile-info {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 20px;
             border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         .profile-info label {
             font-weight: bold;
+            color: #fff;
         }
         .profile-info p {
             margin-bottom: 15px;
+            color: #fff;
         }
         .profile-image {
             text-align: center;
@@ -39,12 +44,14 @@
         }
         .profile-image img {
             width: 200px;
-            height: auto;
+            height: 200px;
             border-radius: 50%;
             border: 5px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
         .profile-image p {
             margin-top: 10px;
+            color: #fff;
         }
     </style>
 </head>
@@ -54,35 +61,44 @@
             <h1>User Profile</h1>
         </div>
         <div class="profile-info">
-            <label for="address">Address:</label>
-            <p>{{ data.address }}</p>
-
-            <label for="phone">Phone:</label>
-            <p>{{ data.phone }}</p>
-
-            <label for="dob">Date of Birth:</label>
-            <p>{{ data.dob }}</p>
-
-            <label for="location">Location:</label>
-            <p>{{ data.location }}</p>
-
             <div class="profile-image">
                 <label for="profile_image">Profile Image:</label>
-                {% if user_profile.profile_image %}
-                <img src="{{ user_profile.profile_image.url }}" alt="Profile Image">
+                {% if data.profile_image %}
+                <img src="{{ data.profile_image.url }}" alt="Profile Image">
                 {% else %}
                 <p>No profile image available</p>
                 {% endif %}
             </div>
+            <label for="address">Address  :  {{ data.address }}</label>
+            
+<div>
+            <label for="phone">Phone  :  {{ data.phone }}</label>
+            
+</div>
+<div>
+            <label for="dob">Date of Birth   :  {{ data.dob }}</label>
+             
+            </div>
+<div>
+    <label for="location">Location  :  {{ data.location }}</label>
 
-            <label for="guardian_name">Guardian Name:</label>
-            <p>{{ data.guardian_name }}</p>
+</div>            
 
-            <label for="guardian_phone">Guardian Phone:</label>
-            <p>{{ data.guardian_phone }}</p>
+            
+             <div>
+            <label for="guardian_name">Guardian Name  :  {{ data.guardian_name }}
+            </label>
+            </div>
+            
+             <div>
+            <label for="guardian_phone">Guardian Phone  :  {{ data.guardian_phone }}</label>
+            </div>
+             
+            <div>
+                <label for="guardian_email">Guardian Email  :  {{ data.guardian_email }}</label>
 
-            <label for="guardian_email">Guardian Email:</label>
-            <p>{{ data.guardian_email }}</p>
+            </div>
+            
         </div>
     </div>
 </body>

@@ -26,10 +26,10 @@
             <div class="col-12 border">
                 <table>
                     <tr>
-                        <th>Complainant</th>
-                        <th>User Phone Number</th>
-                        <th>Guardian Name</th>
-                        <th>Guardian Phone Number</th>
+                        <th>guardian_name</th>
+                        <th>guardian_phone</th>
+                        <th>send date</th>
+                        <th>username</th>
                         <th>Description</th>
                         <th>Status</th>
                         <th>Action</th>
@@ -38,8 +38,8 @@
                     <tr>
                         <td>{{ complaint.UserProfile.User }}</td>
                         <td>{{ complaint.UserProfile.PhoneNumber }}</td>
-                        <td>{{ complaint.UserProfile.guardian_name}}</td>
-                        <td>{{ complaint.UserProfile.guardian_phone }}</td>
+                        <td>{{ complaint.date_time}}</td>
+                        <td>{{ complaint.complainant }}</td>
                         <td>{{ complaint.description }}</td>
                         <td>{{ complaint.status }}</td>
                         <td>

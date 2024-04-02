@@ -324,11 +324,12 @@ def sendmail(request):
     police_profiles = PoliceProfile.objects.filter(police_station_location=user_location)
     for profile in police_profiles:
         police_email = profile.email
+        print(police_email)
         message = f"Hello,\n\n{request.user.username} is in trouble and needs help.\n Here the user location {request.user.user_profile.location}  \n Here the user's guardian's name and phone number {request.user.user_profile.guardian_name}, {request.user.user_profile.guardian_phone} \n Here the user Phone number {request.user.user_profile.phone}  \n\nRegards,\nYour Website Team"
         send_mail(
             "Women Safety",  # Subject
              message,  # Message
-            "womensafety33@gmail.com",  # Sender's email
+            "womensafty333@gmail.com",  # Sender's email
             [police_email],  # Recipient's email
             fail_silently=False,
         )
@@ -339,5 +340,22 @@ def sendmail(request):
 
 class IndexView(TemplateView):
     template_name="home.html"
+
+class AdminpoliceListView(ListView):
+    template_name="adminpolicelist.html"    
+    model=PoliceProfile
+    context_object_name="data" 
+
+class AdminpoliceUpdateView(UpdateView):
+    template_name="adminupdate.html"  
+    form_class=PoliceProfileForm
+    model=PoliceProfile  
+    def get_success_url(self):
+        return reverse("adminindex")
+
+class userlocationview(ListView):
+    template_name="userlocation.html"    
+    model=UserProfile
+    context_object_name="data" 
 
  

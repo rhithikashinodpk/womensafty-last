@@ -7,35 +7,56 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: rgb(162, 200, 200);
-            padding: 20px;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
         h1 {
             text-align: center;
+            color: #333;
         }
-        .container {
-            margin: 0 auto;
-            width: 80%;
-        }
+
         .complaint {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #fff;
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            list-style: none;
+            margin: 0;
+        }
+
+        .complaint:last-child {
+            border-bottom: none;
+        }
+
+        .description {
+            font-weight: bold;
+        }
+
+        .status {
+            color: #555;
         }
     </style>
 </head>
 <body>
-    <h1>Complaints List</h1>
     <div class="container">
-        {% for complaint in data %}
-        <div class="complaint">
-
-            <p><strong>Description:</strong> {{ complaint.description }}</p>
-            <p><strong>Status:</strong> {{ complaint.status }}</p>
-        </div>
-        {% endfor %}
+        <h1>Complaints List</h1>
+        <ul class="complaints">
+            {% for complaint in complaints %}
+                <li class="complaint">
+                    <span class="description">{{ complaint.description }}</span>
+                    <span class="status">::{{ complaint.status }}</span>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
