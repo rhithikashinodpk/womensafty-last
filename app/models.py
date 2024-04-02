@@ -40,8 +40,8 @@ class PoliceProfile(models.Model):
 
 class Complaint(models.Model):
     userphone=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="userph",null=True)
-    guardianname =models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardian",null=True)
-    guardianphone=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardianph",null=True)
+    guardian_name=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardian",null=True)
+    guardian_phone=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardianph",null=True)
     complainant = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     date_time = models.DateTimeField(auto_now_add=True)

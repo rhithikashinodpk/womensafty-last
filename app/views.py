@@ -105,7 +105,7 @@ class UserprofileAddView(UpdateView):
     
 @method_decorator(decs,name="dispatch")  
   
-class UpdateUserProfileView(CreateView):
+class UpdateUserProfileView(UpdateView):
     model = UserProfile
     form_class = UserProfileForm
     template_name = 'edituserprofile.html'
@@ -276,6 +276,11 @@ class AdminUserListView(ListView):
     template_name="adminuserlist.html"    
     model=UserProfile
     context_object_name="data" 
+
+
+    def get_queryset(self):
+        # Filter users by role
+        return User.objects.filter(role='user')
 
 
 @never_cache

@@ -60,10 +60,11 @@
 <div class="container">
     <h2>User Information</h2>
     {% for d in data %}
-    {% if d.user == request.user %}
+   
     <div class="card">
         <div class="user-info">
             <img src="{% static 'path_to_user_image.jpg' %}" alt="User Image">
+           
             <p><strong>User:</strong> {{ d.user }}</p>
             <p><strong>Phone:</strong> {{ d.phone }}</p>
             <p><strong>Location:</strong> {{ d.location }}</p>
@@ -72,7 +73,7 @@
             <iframe class="w-100 h-100 rounded-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.9531585635505!2d76.34271137327569!3d10.02072427268137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080c61ec082add%3A0xf5f56e9d266e15a8!2sThrikkakara%20Janamaithri%20Police%20Station!5e0!3m2!1sen!2sin!4v1710406961050!5m2!1sen!2sin" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
-    {% endif %}
+
     {% endfor %}
 </div>
 
