@@ -26,20 +26,24 @@
             <div class="col-12 border">
                 <table>
                     <tr>
-                        <th>guardian_name</th>
-                        <th>guardian_phone</th>
-                        <th>send date</th>
                         <th>username</th>
+                        <th>userphone</th>
+                        <th>guardian name</th>
+                        <th>guardianphone</th>
+                        <th>send date</th>
+
                         <th>Description</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
                     {% for complaint in complaints %}
                     <tr>
-                        <td>{{ complaint.UserProfile.User }}</td>
-                        <td>{{ complaint.UserProfile.PhoneNumber }}</td>
-                        <td>{{ complaint.date_time}}</td>
                         <td>{{ complaint.complainant }}</td>
+
+                        <td>{{ complaint.userphone }}</td>
+                        <td>{{ complaint.guardianname}}</td>
+                        <td>{{complaint.guardianphone}}</td>
+                        <td>{{ complaint.date_time}}</td>
                         <td>{{ complaint.description }}</td>
                         <td>{{ complaint.status }}</td>
                         <td>
