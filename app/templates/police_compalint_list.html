@@ -40,9 +40,9 @@
                     <tr>
                         <td>{{ complaint.complainant }}</td>
 
-                        <td>{{ complaint.userphone }}</td>
-                        <td>{{ complaint.guardian_name }}</td>
-                        <td>{{ complaint.guardian_phone}}</td>
+                        <td>{{ complaint.complainant.user_profile.phone }}</td>
+                        <td>{{ complaint.complainant.user_profile.guardian_name }}</td>
+                        <td>{{ complaint.complainant.user_profile.guardian_phone}}</td>
                         <td>{{ complaint.date_time}}</td>
                         <td>{{ complaint.description }}</td>
                         <td>{{ complaint.status }}</td>

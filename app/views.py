@@ -221,7 +221,10 @@ class PoliceUpdateView(UpdateView):
 class policestationListView(ListView):
     model = PoliceProfile
     template_name = 'police_list.html'
-    context_object_name = 'police'    
+    context_object_name = 'police'   
+
+    def get_queryset(self):
+        return UserProfile.objects.filter(user__role='police') 
 
   
 @never_cache
@@ -279,9 +282,7 @@ class AdminUserListView(ListView):
 
 
     def get_queryset(self):
-        # Filter users by role
-        return User.objects.filter(role='user')
-
+        return UserProfile.objects.filter(user__role='user')
 
 @never_cache
 @login_required 
@@ -328,7 +329,7 @@ def sendmail(request):
     print(user_location)
     police_profiles = PoliceProfile.objects.filter(police_station_location=user_location)
     for profile in police_profiles:
-        police_email = profile.email
+        police_email = profile.user.email
         print(police_email)
         message = f"Hello,\n\n{request.user.username} is in trouble and needs help.\n Here the user location {request.user.user_profile.location}  \n Here the user's guardian's name and phone number {request.user.user_profile.guardian_name}, {request.user.user_profile.guardian_phone} \n Here the user Phone number {request.user.user_profile.phone}  \n\nRegards,\nYour Website Team"
         send_mail(
@@ -362,4 +363,7 @@ class userlocationview(ListView):
     template_name="userlocation.html"    
     model=UserProfile
     context_object_name="data" 
+
+    def get_queryset(self):
+        return UserProfile.objects.filter(user__role='user') 
 

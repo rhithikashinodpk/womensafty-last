@@ -33,7 +33,7 @@ class PoliceRegistrationForm(forms.ModelForm):
         model = User
         fields = ['username', 'email' ,'password', 'confirm_password']
 
-    police_profile_fields = ['station_name','police_station_location','Email','helpline_number']  # Add fields from PoliceProfile model here
+    police_profile_fields = ['station_name','police_station_location','helpline_number']  # Add fields from PoliceProfile model here
 
     for field in police_profile_fields:
         locals()[field] = forms.CharField()  # Create a form field for each PoliceProfile field
@@ -126,7 +126,7 @@ class AlertForm(forms.ModelForm):
 class PoliceProfileForm(forms.ModelForm):
     class Meta:
         model = PoliceProfile
-        fields = ['station_name','police_station_location','helpline_number','email']       
+        fields = ['station_name','police_station_location','helpline_number']       
 
 class SearchForm(forms.Form):
     query = forms.CharField(label='Search')            

@@ -33,15 +33,11 @@ class PoliceProfile(models.Model):
     station_name = models.CharField(max_length=200)
     police_station_location=models.CharField(max_length=200)
     helpline_number = models.CharField(max_length=20, null=True)
-    email=models.EmailField(null=True)
 
     def __str__(self):
         return self.user.username
 
 class Complaint(models.Model):
-    userphone=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="userph",null=True)
-    guardian_name=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardian",null=True)
-    guardian_phone=models.ForeignKey(UserProfile,on_delete=models.CASCADE,related_name="guardianph",null=True)
     complainant = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     date_time = models.DateTimeField(auto_now_add=True)
